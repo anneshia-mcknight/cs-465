@@ -21,9 +21,11 @@
   "homepage": "https://github.com/anneshia-mcknight/cs465-travlr-getaways#readme",
   "dependencies": {
     "cookie-parser": "^1.4.7",
+    "dotenv": "^18.0.3",
     "express": "^5.2.1",
     "hbs": "^4.3.1",
     "http-errors": "^2.0.1",
+    "mongoose": "^9.10.2",
     "morgan": "^1.12.0"
   }
 }
