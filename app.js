@@ -10,6 +10,9 @@ const hbs = require('hbs');
 const indexRouter = require('./app_server/routes/index');
 const travelRouter = require('./app_server/routes/travel');
 const pagesRouter = require('./app_server/routes/pages');
+require('./app_api/models/db');
+const apiRouter = require('./app_api/routes/index');
+
 
 const app = express();
 
@@ -31,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public'), { index: false }));
 // wire the controllers to their routes
 app.use('/', indexRouter);
 app.use('/travel', travelRouter);
-app.use('/', pagesRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
