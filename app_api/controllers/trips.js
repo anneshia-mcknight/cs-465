@@ -32,8 +32,20 @@ const tripsFindByCode = async (req, res) => {
     return res.status(500).json({ message: err.message });
   }
 };
-
+// POST: /trips
+// Add a new trip to the database
+const tripsAddTrip = async (req, res) => {
+    try {
+        const newTrip = await Trip.create(req.body);
+        return res.status(201).json(newTrip);
+    } catch (err) {
+        return res.status(400).json({
+            message: err.message
+        });
+    }
+};
 module.exports = {
-  tripsList,
-  tripsFindByCode
+    tripsList,
+    tripsFindByCode,
+    tripsAddTrip
 };
