@@ -16,6 +16,19 @@ const apiRouter = require('./app_api/routes/index');
 
 const app = express();
 
+ // Allow Angular to access the Express API
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:4201');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
+
 // view engine setup - views now live under app_server
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 

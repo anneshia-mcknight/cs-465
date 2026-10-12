@@ -1,0 +1,26 @@
+
+<h2>Travlr Getaways - Available Trips</h2>
+
+<p>Number of trips: {{ trips.length }}</p>
+
+<div *ngIf="!selectedTrip">
+  <div *ngFor="let trip of trips">
+    <app-trip-card
+      [trip]="trip"
+      (editTrip)="onEditTrip($event)">
+    </app-trip-card>
+  </div>
+</div>
+
+<app-edit-trip
+  *ngIf="selectedTrip"
+  [trip]="selectedTrip"
+  (tripUpdated)="onTripUpdated()"
+  (cancelEdit)="selectedTrip = null">
+</app-edit-trip>
+
+
+
+
+
+

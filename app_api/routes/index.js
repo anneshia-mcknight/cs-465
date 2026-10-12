@@ -1,12 +1,18 @@
+
 const express = require('express');
 const router = express.Router();
 
 const ctrlTrips = require('../controllers/trips');
 
+// Get all trips and add a new trip
 router.route('/trips')
-    .get(ctrlTrips.tripsList)
-    .post(ctrlTrips.tripsAddTrip);
+  .get(ctrlTrips.tripsList)
+  .post(ctrlTrips.tripsAddTrip);
 
+// Get, update, and delete a specific trip
 router.route('/trips/:tripCode')
-    .get(ctrlTrips.tripsFindByCode);
+  .get(ctrlTrips.tripsFindByCode)
+  .put(ctrlTrips.tripsUpdateTrip)
+  .delete(ctrlTrips.tripsDeleteTrip);
+
 module.exports = router;
