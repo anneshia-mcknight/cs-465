@@ -1,0 +1,10 @@
+Module 7 - Local setup
+1. Install MongoDB Community Server locally and start it.
+2. Copy .env.example to .env and replace JWT_SECRET with your own long random secret. Never upload .env.
+3. From travlr run npm.cmd install then npm.cmd start (Express: http://localhost:3000).
+4. From travlr/app_admin run npm.cmd install then ng.cmd serve --proxy-config proxy.conf.json --port 4300.
+5. Visit http://localhost:4300/register to create a test admin; then log out and log in at /login.
+6. Confirm unauthenticated POST /api/trips returns 401, and authenticated Add Trip and Edit Trip succeed.
+7. Test /api/register and /api/login using Postman; save screenshots as evidence if required.
+8. Git branch module7 and push are still required separately; this ZIP contains no Git history.
+Note: This ZIP has been statically reviewed/edited but has NOT been runtime-tested with local MongoDB or Angular.

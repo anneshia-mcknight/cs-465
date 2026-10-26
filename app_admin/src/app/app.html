@@ -1,0 +1,33 @@
+<nav class="navbar navbar-light bg-light px-4">
+  <a class="navbar-brand" routerLink="/">Travlr Getaways</a>
+
+  <div class="d-flex align-items-center gap-3">
+    <a routerLink="/" class="nav-link">Trips</a>
+
+    <a
+      *ngIf="!auth.isLoggedIn()"
+      routerLink="/login"
+      class="nav-link">
+      Log In
+    </a>
+
+    <span *ngIf="auth.isLoggedIn()">
+      {{ auth.getCurrentUser()?.name }}
+    </span>
+
+    <button
+      *ngIf="auth.isLoggedIn()"
+      type="button"
+      class="btn btn-outline-secondary"
+      (click)="logout()">
+      Log Out
+    </button>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+
+  <app-add-trip *ngIf="auth.isLoggedIn() && isHomePage()" (tripAdded)="reloadTrips()">
+  </app-add-trip>
+</div>
