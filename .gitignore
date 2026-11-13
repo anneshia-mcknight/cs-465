@@ -2,3 +2,8 @@ node_modules/
 npm-debug.log
 .DS_Store
 .env
+app_admin/node_modules/
+app_admin/dist/
+app_admin/.angular/
+dist/
+.angular/
