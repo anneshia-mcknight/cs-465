@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dbURI = process.env.MONGODB_URI;
+const dbURI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/travlr";
 const readLine = require('readline');
 
 // Build the connection string and set the connection timeout.

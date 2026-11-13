@@ -5,6 +5,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const hbs = require('hbs');
+const passport = require('./app_api/config/passport');
 
 // MVC routers from the app_server folder
 const indexRouter = require('./app_server/routes/index');
@@ -41,6 +42,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(passport.initialize());
 // serve static assets (css, images) but let the MVC routes own the page URLs
 app.use(express.static(path.join(__dirname, 'public'), { index: false }));
 

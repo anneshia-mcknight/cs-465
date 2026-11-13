@@ -1,5 +1,6 @@
 
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Authentication } from '../services/authentication';
 
 @Component({
   selector: 'app-trip-card',
@@ -8,6 +9,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './trip-card.html',
 })
 export class TripCard {
+  constructor(public auth: Authentication) {}
   @Input() trip: any;
 
   @Output() editTrip = new EventEmitter<any>();

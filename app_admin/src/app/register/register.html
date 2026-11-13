@@ -1,0 +1,6 @@
+<div class="container mt-4"><h2>Create Admin Account</h2><form (ngSubmit)="submit()">
+<p *ngIf="error" class="alert alert-danger">{{error}}</p>
+<label>Name</label><input class="form-control" name="name" [(ngModel)]="name" required>
+<label>Email</label><input class="form-control" type="email" name="email" [(ngModel)]="email" required>
+<label>Password</label><input class="form-control" type="password" name="password" [(ngModel)]="password" required minlength="8">
+<button class="btn btn-primary mt-3" type="submit" [disabled]="saving">Register</button></form></div>

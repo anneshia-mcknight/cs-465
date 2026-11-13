@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TripData {
-  private apiUrl = 'http://localhost:3000/api/trips';
+  private apiUrl = '/api/trips';
 
   constructor(private http: HttpClient) {}
 

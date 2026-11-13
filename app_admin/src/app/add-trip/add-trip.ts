@@ -1,7 +1,7 @@
 
 
 
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { TripData } from '../services/trip-data';
 
 @Component({
@@ -11,6 +11,7 @@ import { TripData } from '../services/trip-data';
   styleUrl: './add-trip.css'
 })
 export class AddTrip {
+  @Output() tripAdded = new EventEmitter<void>();
   trip = {
     code: '',
     name: '',
@@ -29,6 +30,7 @@ export class AddTrip {
       next: (response) => {
         console.log('Trip added successfully:', response);
         alert('Trip added successfully!');
+        this.tripAdded.emit();
       },
       error: (error) => {
         console.error('Error adding trip:', error);
